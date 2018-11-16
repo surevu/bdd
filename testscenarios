@@ -1,0 +1,71 @@
+Feature: Entering Personal Details in Conference Registration Form
+
+  Scenario: Verify the title of the page.
+    Given User is on the conference registration page
+    Then Verify the title conference registration
+
+  Scenario: Failure in registration beacuse of leaving firstname blank
+    Given User is on the conference registration page
+    When User doesnot enter any data in first name textbox and clicks next
+    Then Display Alert Message
+
+  Scenario: Failure in registration beacuse of leaving lastname blank
+    Given User is on the conference registration page
+    When User enters valid details till firstname and doesnot enter any data in lastname textbox and clicks next
+    Then Display Alert Message
+
+  Scenario: Failure in registration beacuse of leaving email blank
+    Given User is on the conference registration page
+    When User enters valid details till lastname and doesnot enter any data in email textbox and clicks next
+    Then Display Alert Message
+
+  Scenario: Failure in registration beacuse of entering wrong email format
+    Given User is on the conference registration page
+    When User enters valid details till lastname and enters wrong format data in email textbox and clicks next
+    Then Display Alert Message
+
+  Scenario: Failure in registration beacuse of leaving contact number blank
+    Given User is on the conference registration page
+    When User enters valid details till email and doesnot enter any data in conactno textbox and clicks next
+    Then Display Alert Message
+
+  Scenario: Failure in registration beacuse of entering wrong format contact number
+    Given User is on the conference registration page
+    When User enters valid details till email and enters wrong format in conactno textbox and clicks next
+    Then Display Alert Message
+
+  Scenario: Failure in registration beacuse of not selecting any option from number of people attending
+    Given User is on the conference registration page
+    When User enters valid details till contactno and doesnot select any option from number of people attending and clicks next
+    Then Display Alert Message
+
+  Scenario: Failure in registration beacuse of leaving bulding name and roomno blank
+    Given User is on the conference registration page
+    When User enters valid details till number of people attending and doesnot enter any data in bulding name and roomno textbox and clicks next
+    Then Display Alert Message
+
+  Scenario: Failure in registration beacuse of leaving area name blank
+    Given User is on the conference registration page
+    When User enters valid details till bulding name and roomno and doesnot enter any data in area name textbox and clicks next
+    Then Display Alert Message
+
+  Scenario: Failure in registration beacuse of not selecting any option from city
+    Given User is on the conference registration page
+    When User enters valid details till area name and doesnot select any option from city and clicks next
+    Then Display Alert Message
+
+  Scenario: Failure in registration beacuse of not selecting any option from state
+    Given User is on the conference registration page
+    When User enters valid details till city and doesnot select any option from state and clicks next
+    Then Display Alert Message
+
+  Scenario: Failure in registration beacuse of not selecting any radiobutton from two membership status
+    Given User is on the conference registration page
+    When User enters valid details till state and doesnot select any radio button from two membership status and clicks next
+    Then Display Alert Message
+
+  Scenario: Successful in registration on entering all valid details
+    Given User is on the conference registration page
+    When User enters all valid details and clicks next
+    Then Display Alert Message and clicks OK
+    And Navigate to Payment Details page

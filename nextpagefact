@@ -1,0 +1,168 @@
+package pageBean;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+public class PageBeanFactoryConferenceRegistration {
+	
+	private WebDriver driver;
+	
+	@FindBy(name="txtFN")
+	@CacheLookup
+	WebElement fname;
+	
+	@FindBy(id="txtLastName")
+	@CacheLookup
+	WebElement lname;
+	
+	@FindBy(name="Email")
+	@CacheLookup
+	WebElement email;
+	
+	@FindBy(name="Phone")
+	@CacheLookup
+	WebElement contatNo;
+	
+	@FindBy(xpath="html/body/form/table/tbody/tr[5]/td[2]/select")
+	@CacheLookup
+	WebElement nfattending;
+	
+	@FindBy(name="Address")
+	@CacheLookup
+	WebElement bNameAndRoom;
+	
+	@FindBy(name="Address2")
+	@CacheLookup
+	WebElement areaname;
+	
+	@FindBy(name="city")
+	@CacheLookup
+	WebElement city;
+	
+	@FindBy(name="state")
+	@CacheLookup
+	WebElement state;
+	
+	@FindBy(xpath="html/body/form/table/tbody/tr[12]/td[2]/input")
+	@CacheLookup
+	WebElement member;
+	
+	@FindBy(xpath="html/body/form/table/tbody/tr[13]/td[2]/input")
+	@CacheLookup
+	WebElement nonmember;
+	
+	@FindBy(xpath="html/body/form/table/tbody/tr[14]/td/a")
+	@CacheLookup
+	WebElement next;
+	
+	public PageBeanFactoryConferenceRegistration(WebDriver driver) {
+		
+		this.driver=driver;
+		PageFactory.initElements(driver, this);
+		
+		}
+
+	public void setFname(String ifname) {
+		this.fname.sendKeys(ifname);
+	}
+
+	public void setLname(String ilname) {
+		this.lname.sendKeys(ilname);
+	}
+
+	public void setEmail(String iemail) {
+		this.email.sendKeys(iemail);
+	}
+
+	public void setContatNo(String icontatNo) {
+		this.contatNo.sendKeys(icontatNo);
+	}
+
+	public void setNfattending(String infattending) {
+		new Select(nfattending).selectByVisibleText(infattending);
+	}
+
+	public void setbNameAndRoom(String ibNameAndRoom) {
+		this.bNameAndRoom.sendKeys(ibNameAndRoom);
+	}
+
+	public void setAreaname(String iareaname) {
+		this.areaname.sendKeys(iareaname);
+	}
+
+	public void setCity(String icity) {
+		new Select(city).selectByVisibleText(icity);
+	}
+
+	public void setState(String istate) {
+		new Select(state).selectByVisibleText(istate);
+	}
+
+	public void setMember() {
+		this.member.click();
+	}
+
+	public void setNonmember() {
+		this.nonmember.click();
+	}
+
+	public void setNext() {
+		this.next.click();
+	}
+
+	public WebElement getFname() {
+		return fname;
+	}
+
+	public WebElement getLname() {
+		return lname;
+	}
+
+	public WebElement getEmail() {
+		return email;
+	}
+
+	public WebElement getContatNo() {
+		return contatNo;
+	}
+
+	public WebElement getNfattending() {
+		return nfattending;
+	}
+
+	public WebElement getbNameAndRoom() {
+		return bNameAndRoom;
+	}
+
+	public WebElement getAreaname() {
+		return areaname;
+	}
+
+	public WebElement getCity() {
+		return city;
+	}
+
+	public WebElement getState() {
+		return state;
+	}
+
+	public WebElement getMember() {
+		return member;
+	}
+
+	public WebElement getNonmember() {
+		return nonmember;
+	}
+
+	public WebElement getNext() {
+		return next;
+	}
+	
+	
+
+
+}

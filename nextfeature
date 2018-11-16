@@ -1,0 +1,37 @@
+Feature: Entering Details in Payment Details Form
+
+  Background: In Conference Registration form, Personal details  validated and redirected to this page
+
+  Scenario: Verify the title of the page.
+    Given User is on the Payment Details page
+    Then Verify the title payment details
+
+  Scenario: Failure in Payment beacuse of leaving card holder name blank
+    Given User is on the Payment Details page
+    When User doesnot enter any data in card holder name textbox and clicks Make Payment button
+    Then Display Alert Message
+
+  Scenario: Failure in Payment beacuse of leaving debit card number blank
+    Given User is on the Payment Details page
+    When User enters valid details till card holder name and doesnot enter any data in debit card number textbox and clicks Make Payment button
+    Then Display Alert Message
+
+  Scenario: Failure in Payment beacuse of leaving cvv blank
+    Given User is on the Payment Details page
+    When User enters valid details till debit card number and doesnot enter any data in cvv textbox and clicks Make Payment button
+    Then Display Alert Message
+
+  Scenario: Failure in Payment beacuse of leaving card expiration month blank
+    Given User is on the Payment Details page
+    When User enters valid details till cvv and doesnot enter any data in card expiration month textbox and clicks Make Payment button
+    Then Display Alert Message
+
+  Scenario: Failure in Payment beacuse of leaving card expiration year blank
+    Given User is on the Payment Details page
+    When User enters valid details till card expiration month and doesnot enter any data in card expiration year textbox and clicks Make Payment button
+    Then Display Alert Message
+
+  Scenario: Successful in Payment beacuse of entering all valid details
+    Given User is on the Payment Details page
+    When User enters valid details clicks Make Payment button
+    Then Display Alert Message
